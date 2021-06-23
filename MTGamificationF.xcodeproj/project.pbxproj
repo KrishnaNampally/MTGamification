@@ -14,6 +14,9 @@
 		3320FEC62682E4ED001809AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3320FEC52682E4ED001809AA /* Assets.xcassets */; };
 		3320FEC92682E4ED001809AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3320FEC72682E4ED001809AA /* LaunchScreen.storyboard */; };
 		3320FED22682E525001809AA /* MTGamification.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3320FED12682E525001809AA /* MTGamification.xcframework */; };
+		3320FED92682E643001809AA /* MTGamification.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 3320FED62682E642001809AA /* MTGamification.podspec */; };
+		3320FEDA2682E643001809AA /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 3320FED72682E642001809AA /* LICENSE */; };
+		3320FEDB2682E643001809AA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3320FED82682E643001809AA /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		3320FEC82682E4ED001809AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3320FECA2682E4ED001809AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3320FED12682E525001809AA /* MTGamification.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MTGamification.xcframework; sourceTree = SOURCE_ROOT; };
+		3320FED62682E642001809AA /* MTGamification.podspec */ = {isa = PBXFileReference; lastKnownFileType = file; path = MTGamification.podspec; sourceTree = SOURCE_ROOT; };
+		3320FED72682E642001809AA /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
+		3320FED82682E643001809AA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +65,9 @@
 		3320FEBB2682E4EB001809AA /* MTGamificationF */ = {
 			isa = PBXGroup;
 			children = (
+				3320FED72682E642001809AA /* LICENSE */,
+				3320FED62682E642001809AA /* MTGamification.podspec */,
+				3320FED82682E643001809AA /* README.md */,
 				3320FED12682E525001809AA /* MTGamification.xcframework */,
 				3320FEBC2682E4EB001809AA /* AppDelegate.swift */,
 				3320FEBE2682E4EB001809AA /* SceneDelegate.swift */,
@@ -128,9 +137,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3320FEDB2682E643001809AA /* README.md in Resources */,
 				3320FEC92682E4ED001809AA /* LaunchScreen.storyboard in Resources */,
 				3320FEC62682E4ED001809AA /* Assets.xcassets in Resources */,
+				3320FED92682E643001809AA /* MTGamification.podspec in Resources */,
 				3320FEC42682E4EB001809AA /* Main.storyboard in Resources */,
+				3320FEDA2682E643001809AA /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
