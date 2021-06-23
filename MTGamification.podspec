@@ -5,12 +5,12 @@ Pod::Spec.new do |spec|
   spec.description  = <<-DESC
 	import STCGamification framework and implement methods
 			DESC
-  spec.homepage     = 'https://github.com/skyshivy/MTGamificationF'
+  spec.homepage     = 'https://github.com/skyshivy/MTGamification'
   spec.authors      = { 'skyshivy' => 'sky.shivy@gmail.com' }
   spec.license      = { :type => "MIT", :file => "license" }
 
   spec.platform      = :ios
-  spec.source       = { :git => 'https://github.com/skyshivy/MTGamificationF.git', :tag => spec.version }
+  spec.source       = { :git => 'https://github.com/skyshivy/MTGamification.git', :tag => spec.version }
 
   spec.vendored_frameworks = 'MTGamification.xcframework'
   spec.exclude_files = "Classes/Exclude"
