@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		3320FEC42682E4EB001809AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3320FEC22682E4EB001809AA /* Main.storyboard */; };
 		3320FEC62682E4ED001809AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3320FEC52682E4ED001809AA /* Assets.xcassets */; };
 		3320FEC92682E4ED001809AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3320FEC72682E4ED001809AA /* LaunchScreen.storyboard */; };
+		3320FED22682E525001809AA /* MTGamification.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3320FED12682E525001809AA /* MTGamification.xcframework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		3320FEC52682E4ED001809AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3320FEC82682E4ED001809AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3320FECA2682E4ED001809AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3320FED12682E525001809AA /* MTGamification.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MTGamification.xcframework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3320FED22682E525001809AA /* MTGamification.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +59,7 @@
 		3320FEBB2682E4EB001809AA /* MTGamificationF */ = {
 			isa = PBXGroup;
 			children = (
+				3320FED12682E525001809AA /* MTGamification.xcframework */,
 				3320FEBC2682E4EB001809AA /* AppDelegate.swift */,
 				3320FEBE2682E4EB001809AA /* SceneDelegate.swift */,
 				3320FEC02682E4EB001809AA /* ViewController.swift */,
@@ -216,7 +220,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -271,7 +275,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -292,10 +296,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = SIXD.MTGamificationF;
+				PRODUCT_BUNDLE_IDENTIFIER = Indosat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -310,10 +314,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = SIXD.MTGamificationF;
+				PRODUCT_BUNDLE_IDENTIFIER = Indosat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
