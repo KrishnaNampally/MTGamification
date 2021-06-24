@@ -29,6 +29,7 @@ public enum GameAction {
   case dismiss
   case onSuccess
   case listView(UIKit.UIView)
+  case info(_: Swift.String, _: Swift.String)
   case leaderBoardView(UIKit.UIView, CoreGraphics.CGFloat)
 }
 @_hasMissingDesignatedInitializers public class Game {
