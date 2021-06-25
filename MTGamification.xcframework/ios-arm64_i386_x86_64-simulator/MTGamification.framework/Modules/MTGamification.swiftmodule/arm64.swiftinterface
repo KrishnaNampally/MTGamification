@@ -29,10 +29,11 @@ public enum GameAction {
   case dismiss
   case onSuccess
   case listView(UIKit.UIView)
-  case info(_: Swift.String, _: Swift.String)
+  case info(_: MTGamification.ScratchData?, _: Swift.String, _: Swift.String)
   case leaderBoardView(UIKit.UIView, CoreGraphics.CGFloat)
 }
 @_hasMissingDesignatedInitializers public class Game {
+  public class func dimissScratchCardController(animated: Swift.Bool)
   public class func loadScratchCard(controller: UIKit.UIViewController, mobileNumber: Swift.String, language: Swift.String, complition: ((MTGamification.GameAction) -> Swift.Void)?)
   public class func gameList(controller: UIKit.UIViewController, mobileNumber: Swift.String, language: Swift.String, complition: ((MTGamification.GameAction) -> Swift.Void)?)
   public class func getLeaderBoardView(controller: UIKit.UIViewController, userId: Swift.String, mobileNumber: Swift.String, language: Swift.String, complition: ((MTGamification.GameAction) -> Swift.Void)?)
@@ -137,6 +138,29 @@ final public class DefaultTextProvider : MTGamification.AnimationTextProvider {
   final public func textFor(keypathName: Swift.String, sourceText: Swift.String) -> Swift.String
   public init()
   @objc deinit
+}
+public struct ScratchData : Swift.Decodable {
+  public var requestId: Swift.String
+  public var respCode: Swift.String
+  public var respDesc: Swift.String
+  public var responseObject: [MTGamification.ScratchRespObj]?
+  public var params: [MTGamification.Param]?
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct ScratchRespObj : Swift.Decodable {
+  public var achievmentId: Swift.String?
+  public var achievementType: Swift.String
+  public var achievmentStatus: Swift.String
+  public var productId: Swift.String?
+  public var cost: Swift.String?
+  public var displayDetails: [MTGamification.DisplayDetails]
+  public var voucherCode: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct Param : Swift.Decodable {
+  public var id: Swift.String
+  public var value: Swift.String
+  public init(from decoder: Swift.Decoder) throws
 }
 public protocol GLScratchCarImageViewDelegate {
   func scratchpercentageDidChange(value: Swift.Float)
@@ -717,6 +741,23 @@ extension GLScratchCardController : MTGamification.GLScratchCarImageViewDelegate
   public func scratchpercentageDidChange(value: Swift.Float)
   public func didScratchStarted()
   public func didScratchEnded()
+}
+public class DisplayDetails : Swift.Decodable {
+  final public let language: Swift.String?
+  final public let lang: Swift.String?
+  final public let name: Swift.String?
+  final public let description: Swift.String?
+  final public let synonym: Swift.String?
+  final public let tncFile: Swift.String?
+  final public let imageList: [MTGamification.ImageList]
+  @objc deinit
+  required public init(from decoder: Swift.Decoder) throws
+}
+public class ImageList : Swift.Decodable {
+  final public let name: Swift.String?
+  final public let idtype: Swift.String?
+  @objc deinit
+  required public init(from decoder: Swift.Decoder) throws
 }
 public enum LottieBackgroundBehavior {
   case stop
