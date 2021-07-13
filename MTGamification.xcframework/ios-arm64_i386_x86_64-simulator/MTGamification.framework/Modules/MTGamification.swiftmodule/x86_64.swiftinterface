@@ -35,6 +35,7 @@ public enum GameAction {
 @_hasMissingDesignatedInitializers public class Game {
   public class func dimissScratchCardController(animated: Swift.Bool)
   public class func loadScratchCard(controller: UIKit.UIViewController, mobileNumber: Swift.String, language: Swift.String, complition: ((MTGamification.GameAction) -> Swift.Void)?)
+  public class func testPopup()
   public class func gameList(controller: UIKit.UIViewController, mobileNumber: Swift.String, language: Swift.String, complition: ((MTGamification.GameAction) -> Swift.Void)?)
   public class func getLeaderBoardView(controller: UIKit.UIViewController, userId: Swift.String, mobileNumber: Swift.String, language: Swift.String, complition: ((MTGamification.GameAction) -> Swift.Void)?)
   @objc deinit
