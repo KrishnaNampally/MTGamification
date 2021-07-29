@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
 // swift-module-flags: -target x86_64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MTGamification
 import ContactsUI
 import CoreGraphics
@@ -21,9 +21,9 @@ public protocol AnyValueProvider {
     @objc set
   }
   @objc override dynamic open func layoutSubviews()
-  @objc deinit
   @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
 }
 public enum GameAction {
   case dismiss
@@ -68,8 +68,8 @@ public enum LayerType : Swift.Int, Swift.Codable {
   case shape
   case text
   public init(from decoder: Swift.Decoder) throws
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -79,8 +79,8 @@ public enum MatteType : Swift.Int, Swift.Codable {
   case add
   case invert
   case unknown
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -102,8 +102,8 @@ public enum BlendMode : Swift.Int, Swift.Codable {
   case saturation
   case color
   case luminosity
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -124,8 +124,8 @@ public enum BlendMode : Swift.Int, Swift.Codable {
   open func startAnimating()
   open func stopAnimating()
   open func startAnimating(fininshIndex: Swift.Int = 0, offset: CoreGraphics.CGFloat, _ completion: ((Swift.Bool) -> Swift.Void)?)
-  @objc deinit
   @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc deinit
 }
 public protocol AnimationTextProvider : AnyObject {
   func textFor(keypathName: Swift.String, sourceText: Swift.String) -> Swift.String
@@ -177,12 +177,12 @@ public protocol GLScratchCarImageViewDelegate {
   @objc override dynamic public func touchesBegan(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
   @objc override dynamic public func touchesEnded(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
   @objc override dynamic public func touchesMoved(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
-  @objc deinit
   @objc override dynamic public init(image: UIKit.UIImage?)
   @available(iOS 3.0, *)
   @objc override dynamic public init(image: UIKit.UIImage?, highlightedImage: UIKit.UIImage?)
   @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
 }
 final public class FloatValueProvider : MTGamification.AnyValueProvider {
   public typealias CGFloatValueBlock = (CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
@@ -209,7 +209,7 @@ public struct Vector3D {
   public let z: Swift.Double
   public init(x: Swift.Double, y: Swift.Double, z: Swift.Double)
 }
-@objc public protocol ScratchUIViewDelegate : AnyObject {
+@objc public protocol ScratchUIViewDelegate {
   @objc optional func scratchBegan(_ view: MTGamification.ScratchUIView)
   @objc optional func scratchMoved(_ view: MTGamification.ScratchUIView)
   @objc optional func scratchEnded(_ view: MTGamification.ScratchUIView)
@@ -226,14 +226,14 @@ public struct Vector3D {
 public class Asset : Swift.Codable {
   final public let id: Swift.String
   required public init(from decoder: Swift.Decoder) throws
-  public func encode(to encoder: Swift.Encoder) throws
   @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
 }
 public enum CoordinateSpace : Swift.Int, Swift.Codable {
   case type2d
   case type3d
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -284,8 +284,8 @@ final public class Animation : Swift.Codable {
     @objc get
   }
   open func animationDidSet()
-  @objc deinit
   @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class ScratchView : UIKit.UIView {
   @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
@@ -415,10 +415,10 @@ public class CarnivalWheelSlice : MTGamification.FortuneWheelSliceProtocol {
     case babyBlue
     case deepBlue
     public static func == (a: MTGamification.CarnivalWheelSlice.Style, b: MTGamification.CarnivalWheelSlice.Style) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
     public var hashValue: Swift.Int {
       get
     }
-    public func hash(into hasher: inout Swift.Hasher)
   }
   public var title: Swift.String
   public var degree: CoreGraphics.CGFloat
@@ -447,10 +447,10 @@ public class FortuneWheelSlice : MTGamification.FortuneWheelSliceProtocol {
     case dark
     case light
     public static func == (a: MTGamification.FortuneWheelSlice.Style, b: MTGamification.FortuneWheelSlice.Style) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
     public var hashValue: Swift.Int {
       get
     }
-    public func hash(into hasher: inout Swift.Hasher)
   }
   public var title: Swift.String
   public var degree: CoreGraphics.CGFloat
@@ -471,8 +471,8 @@ public class FortuneWheelSlice : MTGamification.FortuneWheelSliceProtocol {
 }
 @objc final public class CompatibleAnimation : ObjectiveC.NSObject {
   @objc public init(name: Swift.String, bundle: Foundation.Bundle = Bundle.main)
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc final public class CompatibleAnimationView : UIKit.UIView {
   @objc override dynamic public init(frame: CoreGraphics.CGRect)
@@ -542,9 +542,9 @@ public class FortuneWheelSlice : MTGamification.FortuneWheelSliceProtocol {
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers final public class AnimationSubview : UIKit.UIView {
-  @objc deinit
   @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
 }
 @objc open class FortuneWheelLayer : QuartzCore.CALayer {
   open var layerInsets: UIKit.UIEdgeInsets
@@ -562,10 +562,10 @@ public enum ColorFormatDenominator {
   case OneHundred
   case TwoFiftyFive
   public static func == (a: MTGamification.ColorFormatDenominator, b: MTGamification.ColorFormatDenominator) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 public struct Color {
   public var r: Swift.Double
@@ -626,10 +626,10 @@ infix operator +- : DefaultPrecedence
     case reverse
     case none
     public static func == (a: MTGamification.AnimatedSwitch.CancelBehavior, b: MTGamification.AnimatedSwitch.CancelBehavior) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
     public var hashValue: Swift.Int {
       get
     }
-    public func hash(into hasher: inout Swift.Hasher)
   }
   final public var isOn: Swift.Bool {
     get
@@ -747,7 +747,7 @@ public class DisplayDetails : Swift.Decodable {
   final public let language: Swift.String?
   final public let lang: Swift.String?
   final public let name: Swift.String?
-  final public let description: Swift.String?
+  public var description: Swift.String?
   final public let synonym: Swift.String?
   final public let tncFile: Swift.String?
   final public let imageList: [MTGamification.ImageList]
@@ -766,10 +766,10 @@ public enum LottieBackgroundBehavior {
   case pauseAndRestore
   case forceFinish
   public static func == (a: MTGamification.LottieBackgroundBehavior, b: MTGamification.LottieBackgroundBehavior) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 public enum LottieLoopMode {
   case playOnce
@@ -888,8 +888,8 @@ final public class PointValueProvider : MTGamification.AnyValueProvider {
   @objc public init(keypath: Swift.String)
   @objc public init(keys: [Swift.String])
   final public let animationKeypath: MTGamification.AnimationKeypath
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
 @_hasMissingDesignatedInitializers public class TTUtils {
   public class func uiColor(from rgbValue: Swift.UInt, alpha: CoreGraphics.CGFloat = 1.0) -> UIKit.UIColor
