@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
 // swift-module-flags: -target armv7-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MTGamification
 import ContactsUI
 import CoreGraphics
@@ -198,6 +198,18 @@ final public class FloatValueProvider : MTGamification.AnyValueProvider {
   }
   final public func hasUpdate(frame: CoreGraphics.CGFloat) -> Swift.Bool
   final public func value(frame: CoreGraphics.CGFloat) -> Any
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @IBDesignable public class DashedLineView : UIKit.UIView {
+  @objc @IBInspectable public var lineColor: UIKit.UIColor
+  @objc @IBInspectable public var lineWidth: CoreGraphics.CGFloat
+  @objc @IBInspectable public var gapWidth: CoreGraphics.CGFloat
+  @objc @IBInspectable public var round: Swift.Bool
+  @objc @IBInspectable public var horizontal: Swift.Bool
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic public func prepareForInterfaceBuilder()
+  @objc override dynamic public func draw(_ rect: CoreGraphics.CGRect)
   @objc deinit
 }
 public struct Vector1D {
