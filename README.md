@@ -1,1 +1,1 @@
-# STCGamification
+# MTGamification

@@ -39,6 +39,10 @@ class ViewController: UIViewController {
             loadGameListView(self.conView!)
         case .leaderBoardView(let view, let height):
             loadLeaderBoard(view: view, height: height)
+        case .info(_, _, _):
+            break
+        @unknown default:
+            break
         }
     }
     
