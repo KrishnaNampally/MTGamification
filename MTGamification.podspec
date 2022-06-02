@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = 'MTGamification'
-  spec.version      = '0.1.27'
+  spec.version      = '0.1.28'
   spec.summary      = 'MTGamification framework'
   spec.description  = <<-DESC
 	import STCGamification framework and implement methods
