@@ -464,9 +464,11 @@ SWIFT_CLASS("_TtC14MTGamification14TTFortuneWheel")
 
 
 
+
 @interface UILabel (SWIFT_EXTENSION(MTGamification))
 - (void)awakeFromNib;
 @end
+
 
 
 
@@ -946,9 +948,11 @@ SWIFT_CLASS("_TtC14MTGamification14TTFortuneWheel")
 
 
 
+
 @interface UILabel (SWIFT_EXTENSION(MTGamification))
 - (void)awakeFromNib;
 @end
+
 
 
 
@@ -1428,9 +1432,11 @@ SWIFT_CLASS("_TtC14MTGamification14TTFortuneWheel")
 
 
 
+
 @interface UILabel (SWIFT_EXTENSION(MTGamification))
 - (void)awakeFromNib;
 @end
+
 
 
 
