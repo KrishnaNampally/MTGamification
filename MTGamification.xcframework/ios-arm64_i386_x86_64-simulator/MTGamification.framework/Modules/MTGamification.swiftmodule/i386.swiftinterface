@@ -764,6 +764,7 @@ public class DisplayDetails : Swift.Decodable {
   final public let synonym: Swift.String?
   final public let tncFile: Swift.String?
   final public let imageList: [MTGamification.ImageList]
+  final public let statusMessage: Swift.String?
   @objc deinit
   required public init(from decoder: Swift.Decoder) throws
 }
