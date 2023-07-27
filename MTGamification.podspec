@@ -3,8 +3,8 @@ Pod::Spec.new do |spec|
   spec.version      = '0.1.36'
   spec.summary      = 'MTGamification framework'
   spec.description  = <<-DESC
-	import STCGamification framework and implement methods
-			DESC
+    import STCGamification framework and implement methods
+            DESC
   spec.homepage     = 'https://github.com/skyshivy/MTGamification'
   spec.authors      = { 'skyshivy' => 'sky.shivy@gmail.com' }
   spec.license      = { :type => "MIT", :file => "license" }
