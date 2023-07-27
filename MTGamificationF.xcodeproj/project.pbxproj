@@ -17,6 +17,7 @@
 		3320FEDA2682E643001809AA /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 3320FED72682E642001809AA /* LICENSE */; };
 		3320FEDB2682E643001809AA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3320FED82682E643001809AA /* README.md */; };
 		6A2985012A7284FA0036F5A7 /* MTGamification.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A2985002A7284FA0036F5A7 /* MTGamification.xcframework */; };
+		6AE537D72A72896D00C973E8 /* MTGamification.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE537D62A72896D00C973E8 /* MTGamification.xcframework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		3320FED72682E642001809AA /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
 		3320FED82682E643001809AA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		6A2985002A7284FA0036F5A7 /* MTGamification.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MTGamification.xcframework; sourceTree = SOURCE_ROOT; };
+		6AE537D62A72896D00C973E8 /* MTGamification.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MTGamification.xcframework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A2985012A7284FA0036F5A7 /* MTGamification.xcframework in Frameworks */,
+				6AE537D72A72896D00C973E8 /* MTGamification.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +71,7 @@
 				3320FED72682E642001809AA /* LICENSE */,
 				6A2985002A7284FA0036F5A7 /* MTGamification.xcframework */,
 				3320FED62682E642001809AA /* MTGamification.podspec */,
+				6AE537D62A72896D00C973E8 /* MTGamification.xcframework */,
 				3320FED82682E643001809AA /* README.md */,
 				3320FEBC2682E4EB001809AA /* AppDelegate.swift */,
 				3320FEBE2682E4EB001809AA /* SceneDelegate.swift */,
