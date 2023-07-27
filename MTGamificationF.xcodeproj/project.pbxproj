@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E4F7848282B7C2800EB4AE0 /* MTGamification.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E4F7847282B7C2800EB4AE0 /* MTGamification.xcframework */; };
 		3320FEBD2682E4EB001809AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3320FEBC2682E4EB001809AA /* AppDelegate.swift */; };
 		3320FEBF2682E4EB001809AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3320FEBE2682E4EB001809AA /* SceneDelegate.swift */; };
 		3320FEC12682E4EB001809AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3320FEC02682E4EB001809AA /* ViewController.swift */; };
@@ -17,10 +16,10 @@
 		3320FED92682E643001809AA /* MTGamification.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 3320FED62682E642001809AA /* MTGamification.podspec */; };
 		3320FEDA2682E643001809AA /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 3320FED72682E642001809AA /* LICENSE */; };
 		3320FEDB2682E643001809AA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3320FED82682E643001809AA /* README.md */; };
+		6AB79A6C2A726AD000014E9D /* MTGamification.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB79A6B2A726AD000014E9D /* MTGamification.xcframework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1E4F7847282B7C2800EB4AE0 /* MTGamification.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MTGamification.xcframework; sourceTree = SOURCE_ROOT; };
 		3320FEB92682E4EB001809AA /* MTGamificationF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MTGamificationF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3320FEBC2682E4EB001809AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3320FEBE2682E4EB001809AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +31,7 @@
 		3320FED62682E642001809AA /* MTGamification.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = MTGamification.podspec; sourceTree = SOURCE_ROOT; };
 		3320FED72682E642001809AA /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
 		3320FED82682E643001809AA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		6AB79A6B2A726AD000014E9D /* MTGamification.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MTGamification.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,7 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E4F7848282B7C2800EB4AE0 /* MTGamification.xcframework in Frameworks */,
+				6AB79A6C2A726AD000014E9D /* MTGamification.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,7 +65,7 @@
 		3320FEBB2682E4EB001809AA /* MTGamificationF */ = {
 			isa = PBXGroup;
 			children = (
-				1E4F7847282B7C2800EB4AE0 /* MTGamification.xcframework */,
+				6AB79A6B2A726AD000014E9D /* MTGamification.xcframework */,
 				3320FED72682E642001809AA /* LICENSE */,
 				3320FED62682E642001809AA /* MTGamification.podspec */,
 				3320FED82682E643001809AA /* README.md */,
