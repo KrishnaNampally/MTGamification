@@ -6,6 +6,6 @@ framework module MTGamification {
 }
 
 module MTGamification.Swift {
-    header "MTGamification-Swift.h"
-    requires objc
+  header "MTGamification-Swift.h"
+  requires objc
 }

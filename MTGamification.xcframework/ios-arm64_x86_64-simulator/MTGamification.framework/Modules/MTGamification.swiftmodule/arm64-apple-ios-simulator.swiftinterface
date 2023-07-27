@@ -1,6 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
 // swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MTGamification
+// swift-module-flags-ignorable: -enable-bare-slash-regex
 import CommonCrypto
 import ContactsUI
 import CoreGraphics
@@ -10,20 +11,22 @@ import Foundation
 import QuartzCore
 import Swift
 import UIKit
+import _Concurrency
+import _StringProcessing
 public protocol AnyValueProvider {
   var valueType: Any.Type { get }
   func hasUpdate(frame: MTGamification.AnimationFrameTime) -> Swift.Bool
   func value(frame: MTGamification.AnimationFrameTime) -> Any
 }
-@objc @_inheritsConvenienceInitializers open class LottieView : UIKit.UIView {
-  @objc override dynamic open func didMoveToWindow()
-  @objc override dynamic open var contentMode: UIKit.UIView.ContentMode {
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class LottieView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func didMoveToWindow()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var contentMode: UIKit.UIView.ContentMode {
     @objc get
     @objc set
   }
-  @objc override dynamic open func layoutSubviews()
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
-  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
 public enum GameAction {
@@ -31,7 +34,7 @@ public enum GameAction {
   case onSuccess
   case listView(UIKit.UIView)
   case info(_: MTGamification.ScratchData?, _: Swift.String, _: Swift.String)
-  case leaderBoardView(UIKit.UIView, CoreGraphics.CGFloat)
+  case leaderBoardView(UIKit.UIView, CoreFoundation.CGFloat)
 }
 @_hasMissingDesignatedInitializers public class Game {
   public class func dimissScratchCardController(animated: Swift.Bool)
@@ -42,19 +45,19 @@ public enum GameAction {
   public class func openTransactionHistory(controller: UIKit.UIViewController, userId: Swift.String, mobileNumber: Swift.String, language: Swift.String, complition: ((MTGamification.GameAction) -> Swift.Void)?)
   @objc deinit
 }
-extension Vector1D : Swift.Codable {
+extension MTGamification.Vector1D : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
-extension Vector3D : Swift.Codable {
+extension MTGamification.Vector3D : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
-extension Vector3D {
-  public var pointValue: CoreGraphics.CGPoint {
+extension MTGamification.Vector3D {
+  public var pointValue: CoreFoundation.CGPoint {
     get
   }
-  public var sizeValue: CoreGraphics.CGSize {
+  public var sizeValue: CoreFoundation.CGSize {
     get
   }
 }
@@ -110,23 +113,22 @@ public enum BlendMode : Swift.Int, Swift.Codable {
     get
   }
 }
-@objc public class TTFortuneWheel : UIKit.UIControl, QuartzCore.CAAnimationDelegate {
-  open var equalSlices: Swift.Bool
-  open var slices: [MTGamification.FortuneWheelSliceProtocol]!
-  open var frameStroke: MTGamification.StrokeInfo
-  open var shadow: UIKit.NSShadow?
-  open var initialDrawingOffset: CoreGraphics.CGFloat
-  open var titleRotation: CoreGraphics.CGFloat
-  public init(frame: CoreGraphics.CGRect, slices: [MTGamification.FortuneWheelSliceProtocol])
-  @objc override dynamic public func layoutSubviews()
-  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
-  @objc override dynamic public func draw(_ rect: CoreGraphics.CGRect)
-  open func startAnimating(rotationCompletionOffset: CoreGraphics.CGFloat = 0.0, _ completion: ((Swift.Bool) -> Swift.Void)?)
-  open func startAnimating(fininshIndex: Swift.Int = 0, _ completion: ((Swift.Bool) -> Swift.Void)?)
-  open func startAnimating()
-  open func stopAnimating()
-  open func startAnimating(fininshIndex: Swift.Int = 0, offset: CoreGraphics.CGFloat, _ completion: ((Swift.Bool) -> Swift.Void)?)
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+@objc @_Concurrency.MainActor(unsafe) public class TTFortuneWheel : UIKit.UIControl, QuartzCore.CAAnimationDelegate {
+  @_Concurrency.MainActor(unsafe) open var equalSlices: Swift.Bool
+  @_Concurrency.MainActor(unsafe) open var slices: [MTGamification.FortuneWheelSliceProtocol]!
+  @_Concurrency.MainActor(unsafe) open var frameStroke: MTGamification.StrokeInfo
+  @_Concurrency.MainActor(unsafe) open var shadow: UIKit.NSShadow?
+  @_Concurrency.MainActor(unsafe) open var initialDrawingOffset: CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) open var titleRotation: CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) public init(frame: CoreFoundation.CGRect, slices: [MTGamification.FortuneWheelSliceProtocol])
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func draw(_ rect: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) open func startAnimating(rotationCompletionOffset: CoreFoundation.CGFloat = 0.0, _ completion: ((Swift.Bool) -> Swift.Void)?)
+  @_Concurrency.MainActor(unsafe) open func startAnimating(fininshIndex: Swift.Int = 0, _ completion: ((Swift.Bool) -> Swift.Void)?)
+  @_Concurrency.MainActor(unsafe) open func startAnimating()
+  @_Concurrency.MainActor(unsafe) open func stopAnimating()
+  @_Concurrency.MainActor(unsafe) open func startAnimating(fininshIndex: Swift.Int = 0, offset: CoreFoundation.CGFloat, _ completion: ((Swift.Bool) -> Swift.Void)?)
   @objc deinit
 }
 public protocol AnimationTextProvider : AnyObject {
@@ -170,47 +172,47 @@ public protocol GLScratchCarImageViewDelegate {
   func didScratchStarted()
   func didScratchEnded()
 }
-@objc @_inheritsConvenienceInitializers public class GLScratchCardImageView : UIKit.UIImageView {
-  public var lineType: CoreGraphics.CGLineCap
-  public var lineWidth: CoreGraphics.CGFloat
-  public var benchMarkScratchPercentage: Swift.Float
-  @objc override dynamic public func awakeFromNib()
-  public func addDelegate(delegate: MTGamification.GLScratchCarImageViewDelegate?)
-  @objc override dynamic public func touchesBegan(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
-  @objc override dynamic public func touchesEnded(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
-  @objc override dynamic public func touchesMoved(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
-  @objc override dynamic public init(image: UIKit.UIImage?)
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class GLScratchCardImageView : UIKit.UIImageView {
+  @_Concurrency.MainActor(unsafe) public var lineType: CoreGraphics.CGLineCap
+  @_Concurrency.MainActor(unsafe) public var lineWidth: CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) public var benchMarkScratchPercentage: Swift.Float
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func awakeFromNib()
+  @_Concurrency.MainActor(unsafe) public func addDelegate(delegate: MTGamification.GLScratchCarImageViewDelegate?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func touchesBegan(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func touchesEnded(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func touchesMoved(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(image: UIKit.UIImage?)
   @available(iOS 3.0, *)
-  @objc override dynamic public init(image: UIKit.UIImage?, highlightedImage: UIKit.UIImage?)
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
-  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(image: UIKit.UIImage?, highlightedImage: UIKit.UIImage?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
 final public class FloatValueProvider : MTGamification.AnyValueProvider {
-  public typealias CGFloatValueBlock = (CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
-  final public var float: CoreGraphics.CGFloat {
+  public typealias CGFloatValueBlock = (CoreFoundation.CGFloat) -> CoreFoundation.CGFloat
+  final public var float: CoreFoundation.CGFloat {
     get
     set
   }
   public init(block: @escaping MTGamification.FloatValueProvider.CGFloatValueBlock)
-  public init(_ float: CoreGraphics.CGFloat)
+  public init(_ float: CoreFoundation.CGFloat)
   final public var valueType: Any.Type {
     get
   }
-  final public func hasUpdate(frame: CoreGraphics.CGFloat) -> Swift.Bool
-  final public func value(frame: CoreGraphics.CGFloat) -> Any
+  final public func hasUpdate(frame: CoreFoundation.CGFloat) -> Swift.Bool
+  final public func value(frame: CoreFoundation.CGFloat) -> Any
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers @IBDesignable public class DashedLineView : UIKit.UIView {
-  @objc @IBInspectable public var lineColor: UIKit.UIColor
-  @objc @IBInspectable public var lineWidth: CoreGraphics.CGFloat
-  @objc @IBInspectable public var gapWidth: CoreGraphics.CGFloat
-  @objc @IBInspectable public var round: Swift.Bool
-  @objc @IBInspectable public var horizontal: Swift.Bool
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
-  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
-  @objc override dynamic public func prepareForInterfaceBuilder()
-  @objc override dynamic public func draw(_ rect: CoreGraphics.CGRect)
+@objc @_inheritsConvenienceInitializers @IBDesignable @_Concurrency.MainActor(unsafe) public class DashedLineView : UIKit.UIView {
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) public var lineColor: UIKit.UIColor
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) public var lineWidth: CoreFoundation.CGFloat
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) public var gapWidth: CoreFoundation.CGFloat
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) public var round: Swift.Bool
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) public var horizontal: Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func prepareForInterfaceBuilder()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func draw(_ rect: CoreFoundation.CGRect)
   @objc deinit
 }
 public struct Vector1D {
@@ -228,13 +230,13 @@ public struct Vector3D {
   @objc optional func scratchMoved(_ view: MTGamification.ScratchUIView)
   @objc optional func scratchEnded(_ view: MTGamification.ScratchUIView)
 }
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class ScratchUIView : UIKit.UIView {
-  weak open var delegate: MTGamification.ScratchUIViewDelegate!
-  public var scratchView: MTGamification.ScratchView!
-  open var scratchPosition: CoreGraphics.CGPoint!
-  open func getScratchPercent() -> Swift.Double
-  public init(frame: CoreGraphics.CGRect, Coupon: UIKit.UIImage, MaskImage: UIKit.UIImage, ScratchWidth: CoreGraphics.CGFloat)
-  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class ScratchUIView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) weak open var delegate: MTGamification.ScratchUIViewDelegate!
+  @_Concurrency.MainActor(unsafe) public var scratchView: MTGamification.ScratchView!
+  @_Concurrency.MainActor(unsafe) open var scratchPosition: CoreFoundation.CGPoint!
+  @_Concurrency.MainActor(unsafe) open func getScratchPercent() -> Swift.Double
+  @_Concurrency.MainActor(unsafe) public init(frame: CoreFoundation.CGRect, Coupon: UIKit.UIImage, MaskImage: UIKit.UIImage, ScratchWidth: CoreFoundation.CGFloat)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   @objc deinit
 }
 public class Asset : Swift.Codable {
@@ -263,49 +265,48 @@ final public class Animation : Swift.Codable {
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
 }
-@objc open class AnimatedControl : UIKit.UIControl {
-  final public let animationView: MTGamification.AnimationView
-  public var animation: MTGamification.Animation? {
+@objc @_Concurrency.MainActor(unsafe) open class AnimatedControl : UIKit.UIControl {
+  @_Concurrency.MainActor(unsafe) final public let animationView: MTGamification.AnimationView
+  @_Concurrency.MainActor(unsafe) public var animation: MTGamification.Animation? {
     get
     set
   }
-  public var animationSpeed: CoreGraphics.CGFloat {
+  @_Concurrency.MainActor(unsafe) public var animationSpeed: CoreFoundation.CGFloat {
     get
     set
   }
-  public func setLayer(named: Swift.String, forState: UIKit.UIControl.State)
-  public func setValueProvider(_ valueProvider: MTGamification.AnyValueProvider, keypath: MTGamification.AnimationKeypath)
-  public init(animation: MTGamification.Animation)
-  @objc dynamic public init()
-  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
-  @objc override dynamic open var isEnabled: Swift.Bool {
+  @_Concurrency.MainActor(unsafe) public func setLayer(named: Swift.String, forState: UIKit.UIControl.State)
+  @_Concurrency.MainActor(unsafe) public func setValueProvider(_ valueProvider: MTGamification.AnyValueProvider, keypath: MTGamification.AnimationKeypath)
+  @_Concurrency.MainActor(unsafe) public init(animation: MTGamification.Animation)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public init()
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var isEnabled: Swift.Bool {
     @objc get
     @objc set
   }
-  @objc override dynamic open var isSelected: Swift.Bool {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var isSelected: Swift.Bool {
     @objc get
     @objc set
   }
-  @objc override dynamic open var isHighlighted: Swift.Bool {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var isHighlighted: Swift.Bool {
     @objc get
     @objc set
   }
-  @objc override dynamic open func beginTracking(_ touch: UIKit.UITouch, with event: UIKit.UIEvent?) -> Swift.Bool
-  @objc override dynamic open func continueTracking(_ touch: UIKit.UITouch, with event: UIKit.UIEvent?) -> Swift.Bool
-  @objc override dynamic open func endTracking(_ touch: UIKit.UITouch?, with event: UIKit.UIEvent?)
-  @objc override dynamic open func cancelTracking(with event: UIKit.UIEvent?)
-  @objc override dynamic open var intrinsicContentSize: CoreGraphics.CGSize {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func beginTracking(_ touch: UIKit.UITouch, with event: UIKit.UIEvent?) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func continueTracking(_ touch: UIKit.UITouch, with event: UIKit.UIEvent?) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func endTracking(_ touch: UIKit.UITouch?, with event: UIKit.UIEvent?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func cancelTracking(with event: UIKit.UIEvent?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var intrinsicContentSize: CoreFoundation.CGSize {
     @objc get
   }
-  open func animationDidSet()
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) open func animationDidSet()
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class ScratchView : UIKit.UIView {
-  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
-  @objc override dynamic open func touchesBegan(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
-  @objc override dynamic open func touchesMoved(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
-  @objc override dynamic open func touchesEnded(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class ScratchView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func touchesBegan(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func touchesMoved(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func touchesEnded(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
   @objc deinit
 }
 public protocol GLScratchCardDelegate {
@@ -314,39 +315,39 @@ public protocol GLScratchCardDelegate {
   func scratchpercentageDidChange(value: Swift.Float)
   func didScratchEnded()
 }
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class GLScratchCardView : UIKit.UIView {
-  @objc @IBOutlet weak public var scratchCardImageView: MTGamification.GLScratchCardImageView!
-  public var bottomLayerView: UIKit.UIView? {
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class GLScratchCardView : UIKit.UIView {
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) weak public var scratchCardImageView: MTGamification.GLScratchCardImageView!
+  @_Concurrency.MainActor(unsafe) public var bottomLayerView: UIKit.UIView? {
     get
     set
   }
-  public var topLayerImage: UIKit.UIImage {
+  @_Concurrency.MainActor(unsafe) public var topLayerImage: UIKit.UIImage {
     get
     set
   }
-  public var afterScratchDoneButtonTitle: Swift.String
-  public var doneButtonTitle: Swift.String {
+  @_Concurrency.MainActor(unsafe) public var afterScratchDoneButtonTitle: Swift.String
+  @_Concurrency.MainActor(unsafe) public var doneButtonTitle: Swift.String {
     get
     set
   }
-  public var afterScratchTitle: Swift.String
-  public var scratchCardTitle: Swift.String {
+  @_Concurrency.MainActor(unsafe) public var afterScratchTitle: Swift.String
+  @_Concurrency.MainActor(unsafe) public var scratchCardTitle: Swift.String {
     get
     set
   }
-  public var afterScratchSubTitle: Swift.String
-  public var scratchCardSubTitle: Swift.String {
+  @_Concurrency.MainActor(unsafe) public var afterScratchSubTitle: Swift.String
+  @_Concurrency.MainActor(unsafe) public var scratchCardSubTitle: Swift.String {
     get
     set
   }
-  @objc override dynamic public func layoutSubviews()
-  public func addDelegate(delegate: MTGamification.GLScratchCardDelegate?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) public func addDelegate(delegate: MTGamification.GLScratchCardDelegate?)
   @objc deinit
 }
-extension GLScratchCardView : MTGamification.GLScratchCarImageViewDelegate {
-  public func scratchpercentageDidChange(value: Swift.Float)
-  public func didScratchEnded()
-  public func didScratchStarted()
+extension MTGamification.GLScratchCardView : MTGamification.GLScratchCarImageViewDelegate {
+  @_Concurrency.MainActor(unsafe) public func scratchpercentageDidChange(value: Swift.Float)
+  @_Concurrency.MainActor(unsafe) public func didScratchEnded()
+  @_Concurrency.MainActor(unsafe) public func didScratchStarted()
 }
 public class LRUAnimationCache : MTGamification.AnimationCacheProvider {
   public init()
@@ -357,23 +358,23 @@ public class LRUAnimationCache : MTGamification.AnimationCacheProvider {
   public func setAnimation(_ animation: MTGamification.Animation, forKey: Swift.String)
   @objc deinit
 }
-public typealias AnimationFrameTime = CoreGraphics.CGFloat
-public typealias AnimationProgressTime = CoreGraphics.CGFloat
-extension Color : Swift.Codable {
+public typealias AnimationFrameTime = CoreFoundation.CGFloat
+public typealias AnimationProgressTime = CoreFoundation.CGFloat
+extension MTGamification.Color : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
 public protocol AnimationImageProvider {
   func imageForAsset(asset: MTGamification.ImageAsset) -> CoreGraphics.CGImage?
 }
-@objc @_inheritsConvenienceInitializers final public class AnimatedButton : MTGamification.AnimatedControl {
-  final public func setPlayRange(fromProgress: MTGamification.AnimationProgressTime, toProgress: MTGamification.AnimationProgressTime, event: UIKit.UIControl.Event)
-  final public func setPlayRange(fromMarker fromName: Swift.String, toMarker toName: Swift.String, event: UIKit.UIControl.Event)
-  override public init(animation: MTGamification.Animation)
-  @objc override dynamic public init()
-  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
-  @objc override final public func beginTracking(_ touch: UIKit.UITouch, with event: UIKit.UIEvent?) -> Swift.Bool
-  @objc override final public func endTracking(_ touch: UIKit.UITouch?, with event: UIKit.UIEvent?)
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class AnimatedButton : MTGamification.AnimatedControl {
+  @_Concurrency.MainActor(unsafe) final public func setPlayRange(fromProgress: MTGamification.AnimationProgressTime, toProgress: MTGamification.AnimationProgressTime, event: UIKit.UIControl.Event)
+  @_Concurrency.MainActor(unsafe) final public func setPlayRange(fromMarker fromName: Swift.String, toMarker toName: Swift.String, event: UIKit.UIControl.Event)
+  @_Concurrency.MainActor(unsafe) override public init(animation: MTGamification.Animation)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init()
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override final public func beginTracking(_ touch: UIKit.UITouch, with event: UIKit.UIEvent?) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override final public func endTracking(_ touch: UIKit.UITouch?, with event: UIKit.UIEvent?)
   @objc deinit
 }
 public class BundleImageProvider : MTGamification.AnimationImageProvider {
@@ -383,24 +384,24 @@ public class BundleImageProvider : MTGamification.AnimationImageProvider {
 }
 public struct StrokeInfo {
   public var color: UIKit.UIColor
-  public var width: CoreGraphics.CGFloat
-  public init(color: UIKit.UIColor, width: CoreGraphics.CGFloat)
+  public var width: CoreFoundation.CGFloat
+  public init(color: UIKit.UIColor, width: CoreFoundation.CGFloat)
 }
 public protocol FortuneWheelSliceProtocol {
   var title: Swift.String { get }
   var backgroundColor: UIKit.UIColor? { get }
-  var degree: CoreGraphics.CGFloat { get }
+  var degree: CoreFoundation.CGFloat { get }
   var stroke: MTGamification.StrokeInfo? { get }
-  var offsetFromExterior: CoreGraphics.CGFloat { get }
+  var offsetFromExterior: CoreFoundation.CGFloat { get }
   var textAttributes: [Foundation.NSAttributedString.Key : Any] { get }
-  var fontSize: CoreGraphics.CGFloat { get }
+  var fontSize: CoreFoundation.CGFloat { get }
   var fontColor: UIKit.UIColor { get }
   var font: UIKit.UIFont { get }
-  func drawAdditionalGraphics(in context: CoreGraphics.CGContext, circularSegmentHeight: CoreGraphics.CGFloat, radius: CoreGraphics.CGFloat, sliceDegree: CoreGraphics.CGFloat)
+  func drawAdditionalGraphics(in context: CoreGraphics.CGContext, circularSegmentHeight: CoreFoundation.CGFloat, radius: CoreFoundation.CGFloat, sliceDegree: CoreFoundation.CGFloat)
 }
-extension FortuneWheelSliceProtocol {
-  public func drawAdditionalGraphics(in context: CoreGraphics.CGContext, circularSegmentHeight: CoreGraphics.CGFloat, radius: CoreGraphics.CGFloat, sliceDegree: CoreGraphics.CGFloat)
-  public var fontSize: CoreGraphics.CGFloat {
+extension MTGamification.FortuneWheelSliceProtocol {
+  public func drawAdditionalGraphics(in context: CoreGraphics.CGContext, circularSegmentHeight: CoreFoundation.CGFloat, radius: CoreFoundation.CGFloat, sliceDegree: CoreFoundation.CGFloat)
+  public var fontSize: CoreFoundation.CGFloat {
     get
   }
   public var fontColor: UIKit.UIColor {
@@ -412,7 +413,7 @@ extension FortuneWheelSliceProtocol {
   public var textAttributes: [Foundation.NSAttributedString.Key : Any] {
     get
   }
-  public var offsetFromExterior: CoreGraphics.CGFloat {
+  public var offsetFromExterior: CoreFoundation.CGFloat {
     get
   }
   public var stroke: MTGamification.StrokeInfo? {
@@ -435,14 +436,14 @@ public class CarnivalWheelSlice : MTGamification.FortuneWheelSliceProtocol {
     }
   }
   public var title: Swift.String
-  public var degree: CoreGraphics.CGFloat
+  public var degree: CoreFoundation.CGFloat
   public var backgroundColor: UIKit.UIColor? {
     get
   }
   public var fontColor: UIKit.UIColor {
     get
   }
-  public var offsetFromExterior: CoreGraphics.CGFloat {
+  public var offsetFromExterior: CoreFoundation.CGFloat {
     get
   }
   public var font: UIKit.UIFont {
@@ -453,7 +454,7 @@ public class CarnivalWheelSlice : MTGamification.FortuneWheelSliceProtocol {
   }
   public var style: MTGamification.CarnivalWheelSlice.Style
   public init(title: Swift.String)
-  convenience public init(title: Swift.String, degree: CoreGraphics.CGFloat)
+  convenience public init(title: Swift.String, degree: CoreFoundation.CGFloat)
   @objc deinit
 }
 public class FortuneWheelSlice : MTGamification.FortuneWheelSliceProtocol {
@@ -467,7 +468,7 @@ public class FortuneWheelSlice : MTGamification.FortuneWheelSliceProtocol {
     }
   }
   public var title: Swift.String
-  public var degree: CoreGraphics.CGFloat
+  public var degree: CoreFoundation.CGFloat
   public var backgroundColor: UIKit.UIColor? {
     get
   }
@@ -479,96 +480,93 @@ public class FortuneWheelSlice : MTGamification.FortuneWheelSliceProtocol {
   }
   public var style: MTGamification.FortuneWheelSlice.Style
   public init(title: Swift.String)
-  convenience public init(title: Swift.String, degree: CoreGraphics.CGFloat)
-  public func drawAdditionalGraphics(in context: CoreGraphics.CGContext, circularSegmentHeight: CoreGraphics.CGFloat, radius: CoreGraphics.CGFloat, sliceDegree: CoreGraphics.CGFloat)
+  convenience public init(title: Swift.String, degree: CoreFoundation.CGFloat)
+  public func drawAdditionalGraphics(in context: CoreGraphics.CGContext, circularSegmentHeight: CoreFoundation.CGFloat, radius: CoreFoundation.CGFloat, sliceDegree: CoreFoundation.CGFloat)
   @objc deinit
 }
 @objc final public class CompatibleAnimation : ObjectiveC.NSObject {
   @objc public init(name: Swift.String, bundle: Foundation.Bundle = Bundle.main)
-  @objc override dynamic public init()
   @objc deinit
 }
-@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc final public class CompatibleAnimationView : UIKit.UIView {
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
-  @objc final public var compatibleAnimation: MTGamification.CompatibleAnimation? {
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc @_Concurrency.MainActor(unsafe) final public class CompatibleAnimationView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @objc @_Concurrency.MainActor(unsafe) final public var compatibleAnimation: MTGamification.CompatibleAnimation? {
     @objc get
     @objc set
   }
-  @objc final public var loopAnimationCount: CoreGraphics.CGFloat {
+  @objc @_Concurrency.MainActor(unsafe) final public var loopAnimationCount: CoreFoundation.CGFloat {
     @objc get
     @objc set
   }
-  @objc override final public var contentMode: UIKit.UIView.ContentMode {
+  @_Concurrency.MainActor(unsafe) @objc override final public var contentMode: UIKit.UIView.ContentMode {
     @objc get
     @objc set
   }
-  @objc final public var shouldRasterizeWhenIdle: Swift.Bool {
+  @objc @_Concurrency.MainActor(unsafe) final public var shouldRasterizeWhenIdle: Swift.Bool {
     @objc get
     @objc set
   }
-  @objc final public var currentProgress: CoreGraphics.CGFloat {
+  @objc @_Concurrency.MainActor(unsafe) final public var currentProgress: CoreFoundation.CGFloat {
     @objc get
     @objc set
   }
-  @objc final public var currentTime: Foundation.TimeInterval {
+  @objc @_Concurrency.MainActor(unsafe) final public var currentTime: Foundation.TimeInterval {
     @objc get
     @objc set
   }
-  @objc final public var currentFrame: CoreGraphics.CGFloat {
+  @objc @_Concurrency.MainActor(unsafe) final public var currentFrame: CoreFoundation.CGFloat {
     @objc get
     @objc set
   }
-  @objc final public var realtimeAnimationFrame: CoreGraphics.CGFloat {
+  @objc @_Concurrency.MainActor(unsafe) final public var realtimeAnimationFrame: CoreFoundation.CGFloat {
     @objc get
   }
-  @objc final public var realtimeAnimationProgress: CoreGraphics.CGFloat {
+  @objc @_Concurrency.MainActor(unsafe) final public var realtimeAnimationProgress: CoreFoundation.CGFloat {
     @objc get
   }
-  @objc final public var animationSpeed: CoreGraphics.CGFloat {
-    @objc get
-    @objc set
-  }
-  @objc final public var respectAnimationFrameRate: Swift.Bool {
+  @objc @_Concurrency.MainActor(unsafe) final public var animationSpeed: CoreFoundation.CGFloat {
     @objc get
     @objc set
   }
-  @objc final public var isAnimationPlaying: Swift.Bool {
+  @objc @_Concurrency.MainActor(unsafe) final public var respectAnimationFrameRate: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) final public var isAnimationPlaying: Swift.Bool {
     @objc get
   }
-  @objc final public func play()
-  @objc final public func play(completion: ((Swift.Bool) -> Swift.Void)?)
-  @objc final public func play(fromProgress: CoreGraphics.CGFloat, toProgress: CoreGraphics.CGFloat, completion: ((Swift.Bool) -> Swift.Void)? = nil)
-  @objc final public func play(fromFrame: CoreGraphics.CGFloat, toFrame: CoreGraphics.CGFloat, completion: ((Swift.Bool) -> Swift.Void)? = nil)
-  @objc final public func play(fromMarker: Swift.String, toMarker: Swift.String, completion: ((Swift.Bool) -> Swift.Void)? = nil)
-  @objc final public func stop()
-  @objc final public func pause()
-  @objc final public func reloadImages()
-  @objc final public func forceDisplayUpdate()
-  @objc final public func getValue(for keypath: MTGamification.CompatibleAnimationKeypath, atFrame: CoreGraphics.CGFloat) -> Any?
-  @objc final public func logHierarchyKeypaths()
-  @objc final public func setColorValue(_ color: UIKit.UIColor, forKeypath keypath: MTGamification.CompatibleAnimationKeypath)
-  @objc final public func getColorValue(for keypath: MTGamification.CompatibleAnimationKeypath, atFrame: CoreGraphics.CGFloat) -> UIKit.UIColor?
-  @objc final public func addSubview(_ subview: MTGamification.AnimationSubview, forLayerAt keypath: MTGamification.CompatibleAnimationKeypath)
-  @objc final public func convert(rect: CoreGraphics.CGRect, toLayerAt keypath: MTGamification.CompatibleAnimationKeypath?) -> CoreGraphics.CGRect
-  @objc final public func convert(point: CoreGraphics.CGPoint, toLayerAt keypath: MTGamification.CompatibleAnimationKeypath?) -> CoreGraphics.CGPoint
-  @objc final public func progressTime(forMarker named: Swift.String) -> CoreGraphics.CGFloat
-  @objc final public func frameTime(forMarker named: Swift.String) -> CoreGraphics.CGFloat
+  @objc @_Concurrency.MainActor(unsafe) final public func play()
+  @objc @_Concurrency.MainActor(unsafe) final public func play(completion: ((Swift.Bool) -> Swift.Void)?)
+  @objc @_Concurrency.MainActor(unsafe) final public func play(fromProgress: CoreFoundation.CGFloat, toProgress: CoreFoundation.CGFloat, completion: ((Swift.Bool) -> Swift.Void)? = nil)
+  @objc @_Concurrency.MainActor(unsafe) final public func play(fromFrame: CoreFoundation.CGFloat, toFrame: CoreFoundation.CGFloat, completion: ((Swift.Bool) -> Swift.Void)? = nil)
+  @objc @_Concurrency.MainActor(unsafe) final public func play(fromMarker: Swift.String, toMarker: Swift.String, completion: ((Swift.Bool) -> Swift.Void)? = nil)
+  @objc @_Concurrency.MainActor(unsafe) final public func stop()
+  @objc @_Concurrency.MainActor(unsafe) final public func pause()
+  @objc @_Concurrency.MainActor(unsafe) final public func reloadImages()
+  @objc @_Concurrency.MainActor(unsafe) final public func forceDisplayUpdate()
+  @objc @_Concurrency.MainActor(unsafe) final public func getValue(for keypath: MTGamification.CompatibleAnimationKeypath, atFrame: CoreFoundation.CGFloat) -> Any?
+  @objc @_Concurrency.MainActor(unsafe) final public func logHierarchyKeypaths()
+  @objc @_Concurrency.MainActor(unsafe) final public func setColorValue(_ color: UIKit.UIColor, forKeypath keypath: MTGamification.CompatibleAnimationKeypath)
+  @objc @_Concurrency.MainActor(unsafe) final public func getColorValue(for keypath: MTGamification.CompatibleAnimationKeypath, atFrame: CoreFoundation.CGFloat) -> UIKit.UIColor?
+  @objc @_Concurrency.MainActor(unsafe) final public func addSubview(_ subview: MTGamification.AnimationSubview, forLayerAt keypath: MTGamification.CompatibleAnimationKeypath)
+  @objc @_Concurrency.MainActor(unsafe) final public func convert(rect: CoreFoundation.CGRect, toLayerAt keypath: MTGamification.CompatibleAnimationKeypath?) -> CoreFoundation.CGRect
+  @objc @_Concurrency.MainActor(unsafe) final public func convert(point: CoreFoundation.CGPoint, toLayerAt keypath: MTGamification.CompatibleAnimationKeypath?) -> CoreFoundation.CGPoint
+  @objc @_Concurrency.MainActor(unsafe) final public func progressTime(forMarker named: Swift.String) -> CoreFoundation.CGFloat
+  @objc @_Concurrency.MainActor(unsafe) final public func frameTime(forMarker named: Swift.String) -> CoreFoundation.CGFloat
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers final public class AnimationSubview : UIKit.UIView {
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
-  @objc required dynamic public init?(coder: Foundation.NSCoder)
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class AnimationSubview : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
 @objc open class FortuneWheelLayer : QuartzCore.CALayer {
   open var layerInsets: UIKit.UIEdgeInsets
-  public init(frame: CoreGraphics.CGRect, parent: MTGamification.TTFortuneWheel, initialOffset: CoreGraphics.CGFloat = 0.0)
+  public init(frame: CoreFoundation.CGRect, parent: MTGamification.TTFortuneWheel, initialOffset: CoreFoundation.CGFloat = 0.0)
   @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   @objc override dynamic open func draw(in ctx: CoreGraphics.CGContext)
-  open func drawCanvas(mainFrame: CoreGraphics.CGRect)
-  open func drawSlice(withIndex index: Swift.Int, in context: CoreGraphics.CGContext, forSlice slice: MTGamification.FortuneWheelSliceProtocol, rotation: CoreGraphics.CGFloat)
-  @objc override dynamic public init()
-  @objc override dynamic public init(layer: Any)
+  open func drawCanvas(mainFrame: CoreFoundation.CGRect)
+  open func drawSlice(withIndex index: Swift.Int, in context: CoreGraphics.CGContext, forSlice slice: MTGamification.FortuneWheelSliceProtocol, rotation: CoreFoundation.CGFloat)
   @objc deinit
 }
 public enum ColorFormatDenominator {
@@ -588,7 +586,7 @@ public struct Color {
   public var a: Swift.Double
   public init(r: Swift.Double, g: Swift.Double, b: Swift.Double, a: Swift.Double, denominator: MTGamification.ColorFormatDenominator = .One)
 }
-extension Animation {
+extension MTGamification.Animation {
   public static func named(_ name: Swift.String, bundle: Foundation.Bundle = Bundle.main, subdirectory: Swift.String? = nil, animationCache: MTGamification.AnimationCacheProvider? = nil) -> MTGamification.Animation?
   public static func filepath(_ filepath: Swift.String, animationCache: MTGamification.AnimationCacheProvider? = nil) -> MTGamification.Animation?
   public typealias DownloadClosure = (MTGamification.Animation?) -> Swift.Void
@@ -602,27 +600,27 @@ extension Animation {
   final public var duration: Foundation.TimeInterval {
     get
   }
-  final public var bounds: CoreGraphics.CGRect {
+  final public var bounds: CoreFoundation.CGRect {
     get
   }
-  final public var size: CoreGraphics.CGSize {
+  final public var size: CoreFoundation.CGSize {
     get
   }
 }
-extension UIColor {
+extension UIKit.UIColor {
   public var lottieColorValue: MTGamification.Color {
     get
   }
 }
 public protocol AnimationFontProvider {
-  func fontFor(family: Swift.String, size: CoreGraphics.CGFloat) -> CoreText.CTFont?
+  func fontFor(family: Swift.String, size: CoreFoundation.CGFloat) -> CoreText.CTFont?
 }
 final public class DefaultFontProvider : MTGamification.AnimationFontProvider {
-  final public func fontFor(family: Swift.String, size: CoreGraphics.CGFloat) -> CoreText.CTFont?
+  final public func fontFor(family: Swift.String, size: CoreFoundation.CGFloat) -> CoreText.CTFont?
   public init()
   @objc deinit
 }
-extension Sequence {
+extension Swift.Sequence {
   public func localizedStandardSorted<T>(_ predicate: (Self.Element) -> T, ascending: Swift.Bool = true) -> [Self.Element] where T : Swift.StringProtocol
 }
 infix operator +| : DefaultPrecedence
@@ -635,7 +633,7 @@ infix operator +- : DefaultPrecedence
   override final public func encode(to encoder: Swift.Encoder) throws
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers final public class AnimatedSwitch : MTGamification.AnimatedControl {
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class AnimatedSwitch : MTGamification.AnimatedControl {
   public enum CancelBehavior {
     case reverse
     case none
@@ -645,57 +643,57 @@ infix operator +- : DefaultPrecedence
       get
     }
   }
-  final public var isOn: Swift.Bool {
+  @_Concurrency.MainActor(unsafe) final public var isOn: Swift.Bool {
     get
     set
   }
-  final public var cancelBehavior: MTGamification.AnimatedSwitch.CancelBehavior
-  final public func setIsOn(_ isOn: Swift.Bool, animated: Swift.Bool, shouldFireHaptics: Swift.Bool = true)
-  final public func setProgressForState(fromProgress: MTGamification.AnimationProgressTime, toProgress: MTGamification.AnimationProgressTime, forOnState: Swift.Bool)
-  override public init(animation: MTGamification.Animation)
-  @objc override dynamic public init()
-  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
-  @objc override final public func endTracking(_ touch: UIKit.UITouch?, with event: UIKit.UIEvent?)
-  override final public func animationDidSet()
+  @_Concurrency.MainActor(unsafe) final public var cancelBehavior: MTGamification.AnimatedSwitch.CancelBehavior
+  @_Concurrency.MainActor(unsafe) final public func setIsOn(_ isOn: Swift.Bool, animated: Swift.Bool, shouldFireHaptics: Swift.Bool = true)
+  @_Concurrency.MainActor(unsafe) final public func setProgressForState(fromProgress: MTGamification.AnimationProgressTime, toProgress: MTGamification.AnimationProgressTime, forOnState: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) override public init(animation: MTGamification.Animation)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init()
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override final public func endTracking(_ touch: UIKit.UITouch?, with event: UIKit.UIEvent?)
+  @_Concurrency.MainActor(unsafe) override final public func animationDidSet()
   @objc deinit
 }
-extension CALayer {
+extension QuartzCore.CALayer {
   public func logLayerTree(withIndent: Swift.Int = 0)
 }
 final public class SizeValueProvider : MTGamification.AnyValueProvider {
-  public typealias SizeValueBlock = (CoreGraphics.CGFloat) -> CoreGraphics.CGSize
-  final public var size: CoreGraphics.CGSize {
+  public typealias SizeValueBlock = (CoreFoundation.CGFloat) -> CoreFoundation.CGSize
+  final public var size: CoreFoundation.CGSize {
     get
     set
   }
   public init(block: @escaping MTGamification.SizeValueProvider.SizeValueBlock)
-  public init(_ size: CoreGraphics.CGSize)
+  public init(_ size: CoreFoundation.CGSize)
   final public var valueType: Any.Type {
     get
   }
-  final public func hasUpdate(frame: CoreGraphics.CGFloat) -> Swift.Bool
-  final public func value(frame: CoreGraphics.CGFloat) -> Any
+  final public func hasUpdate(frame: CoreFoundation.CGFloat) -> Swift.Bool
+  final public func value(frame: CoreFoundation.CGFloat) -> Any
   @objc deinit
 }
-extension AnimationView {
-  convenience public init(name: Swift.String, bundle: Foundation.Bundle = Bundle.main, imageProvider: MTGamification.AnimationImageProvider? = nil, animationCache: MTGamification.AnimationCacheProvider? = LRUAnimationCache.sharedCache)
-  convenience public init(filePath: Swift.String, imageProvider: MTGamification.AnimationImageProvider? = nil, animationCache: MTGamification.AnimationCacheProvider? = LRUAnimationCache.sharedCache)
-  convenience public init(url: Foundation.URL, imageProvider: MTGamification.AnimationImageProvider? = nil, closure: @escaping MTGamification.AnimationView.DownloadClosure, animationCache: MTGamification.AnimationCacheProvider? = LRUAnimationCache.sharedCache)
+extension MTGamification.AnimationView {
+  @_Concurrency.MainActor(unsafe) convenience public init(name: Swift.String, bundle: Foundation.Bundle = Bundle.main, imageProvider: MTGamification.AnimationImageProvider? = nil, animationCache: MTGamification.AnimationCacheProvider? = LRUAnimationCache.sharedCache)
+  @_Concurrency.MainActor(unsafe) convenience public init(filePath: Swift.String, imageProvider: MTGamification.AnimationImageProvider? = nil, animationCache: MTGamification.AnimationCacheProvider? = LRUAnimationCache.sharedCache)
+  @_Concurrency.MainActor(unsafe) convenience public init(url: Foundation.URL, imageProvider: MTGamification.AnimationImageProvider? = nil, closure: @escaping MTGamification.AnimationView.DownloadClosure, animationCache: MTGamification.AnimationCacheProvider? = LRUAnimationCache.sharedCache)
   public typealias DownloadClosure = (Swift.Error?) -> Swift.Void
 }
-extension UIViewController {
-  @objc override dynamic open func awakeFromNib()
+extension UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func awakeFromNib()
 }
-extension UILabel {
-  @objc override dynamic open func awakeFromNib()
+extension UIKit.UILabel {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func awakeFromNib()
 }
-extension UIButton {
-  @objc override dynamic open func awakeFromNib()
+extension UIKit.UIButton {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func awakeFromNib()
 }
 public typealias LottieCompletionBlock = (Swift.Bool) -> Swift.Void
 final public class GradientValueProvider : MTGamification.AnyValueProvider {
-  public typealias ColorsValueBlock = (CoreGraphics.CGFloat) -> [MTGamification.Color]
-  public typealias ColorLocationsBlock = (CoreGraphics.CGFloat) -> [Swift.Double]
+  public typealias ColorsValueBlock = (CoreFoundation.CGFloat) -> [MTGamification.Color]
+  public typealias ColorLocationsBlock = (CoreFoundation.CGFloat) -> [Swift.Double]
   final public var colors: [MTGamification.Color] {
     get
     set
@@ -709,8 +707,8 @@ final public class GradientValueProvider : MTGamification.AnyValueProvider {
   final public var valueType: Any.Type {
     get
   }
-  final public func hasUpdate(frame: CoreGraphics.CGFloat) -> Swift.Bool
-  final public func value(frame: CoreGraphics.CGFloat) -> Any
+  final public func hasUpdate(frame: CoreFoundation.CGFloat) -> Swift.Bool
+  final public func value(frame: CoreFoundation.CGFloat) -> Any
   @objc deinit
 }
 public protocol AnimationCacheProvider {
@@ -725,7 +723,7 @@ public class FilepathImageProvider : MTGamification.AnimationImageProvider {
   @objc deinit
 }
 final public class ColorValueProvider : MTGamification.AnyValueProvider {
-  public typealias ColorValueBlock = (CoreGraphics.CGFloat) -> MTGamification.Color
+  public typealias ColorValueBlock = (CoreFoundation.CGFloat) -> MTGamification.Color
   final public var color: MTGamification.Color {
     get
     set
@@ -735,8 +733,8 @@ final public class ColorValueProvider : MTGamification.AnyValueProvider {
   final public var valueType: Any.Type {
     get
   }
-  final public func hasUpdate(frame: CoreGraphics.CGFloat) -> Swift.Bool
-  final public func value(frame: CoreGraphics.CGFloat) -> Any
+  final public func hasUpdate(frame: CoreFoundation.CGFloat) -> Swift.Bool
+  final public func value(frame: CoreFoundation.CGFloat) -> Any
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers open class GLScratchCardController : ObjectiveC.NSObject {
@@ -748,11 +746,11 @@ final public class ColorValueProvider : MTGamification.AnyValueProvider {
   public func presentScratchController(controller: UIKit.UIViewController)
   @objc deinit
 }
-extension GLScratchCardController : MTGamification.GLScratchCardDelegate {
+extension MTGamification.GLScratchCardController : MTGamification.GLScratchCardDelegate {
   public func didDoneButtonPressed(sender: UIKit.UIButton)
   public func didCloseButtonPressed(sender: UIKit.UIButton)
 }
-extension GLScratchCardController : MTGamification.GLScratchCarImageViewDelegate {
+extension MTGamification.GLScratchCardController : MTGamification.GLScratchCarImageViewDelegate {
   public func scratchpercentageDidChange(value: Swift.Float)
   public func didScratchStarted()
   public func didScratchEnded()
@@ -793,124 +791,123 @@ public enum LottieLoopMode {
   case `repeat`(Swift.Float)
   case repeatBackwards(Swift.Float)
 }
-extension LottieLoopMode : Swift.Equatable {
+extension MTGamification.LottieLoopMode : Swift.Equatable {
   public static func == (lhs: MTGamification.LottieLoopMode, rhs: MTGamification.LottieLoopMode) -> Swift.Bool
 }
-@objc @_inheritsConvenienceInitializers @IBDesignable final public class AnimationView : MTGamification.LottieView {
-  final public var animation: MTGamification.Animation? {
+@objc @_inheritsConvenienceInitializers @IBDesignable @_Concurrency.MainActor(unsafe) final public class AnimationView : MTGamification.LottieView {
+  @_Concurrency.MainActor(unsafe) final public var animation: MTGamification.Animation? {
     get
     set
   }
-  final public var backgroundBehavior: MTGamification.LottieBackgroundBehavior
-  final public var imageProvider: MTGamification.AnimationImageProvider {
+  @_Concurrency.MainActor(unsafe) final public var backgroundBehavior: MTGamification.LottieBackgroundBehavior
+  @_Concurrency.MainActor(unsafe) final public var imageProvider: MTGamification.AnimationImageProvider {
     get
     set
   }
-  final public var textProvider: MTGamification.AnimationTextProvider {
+  @_Concurrency.MainActor(unsafe) final public var textProvider: MTGamification.AnimationTextProvider {
     get
     set
   }
-  final public var fontProvider: MTGamification.AnimationFontProvider {
+  @_Concurrency.MainActor(unsafe) final public var fontProvider: MTGamification.AnimationFontProvider {
     get
     set
   }
-  final public var isAnimationPlaying: Swift.Bool {
+  @_Concurrency.MainActor(unsafe) final public var isAnimationPlaying: Swift.Bool {
     get
   }
-  final public var isAnimationQueued: Swift.Bool {
+  @_Concurrency.MainActor(unsafe) final public var isAnimationQueued: Swift.Bool {
     get
   }
-  final public var loopMode: MTGamification.LottieLoopMode {
-    get
-    set
-  }
-  final public var shouldRasterizeWhenIdle: Swift.Bool {
+  @_Concurrency.MainActor(unsafe) final public var loopMode: MTGamification.LottieLoopMode {
     get
     set
   }
-  final public var currentProgress: MTGamification.AnimationProgressTime {
+  @_Concurrency.MainActor(unsafe) final public var shouldRasterizeWhenIdle: Swift.Bool {
     get
     set
   }
-  final public var currentTime: Foundation.TimeInterval {
+  @_Concurrency.MainActor(unsafe) final public var currentProgress: MTGamification.AnimationProgressTime {
     get
     set
   }
-  final public var currentFrame: MTGamification.AnimationFrameTime {
+  @_Concurrency.MainActor(unsafe) final public var currentTime: Foundation.TimeInterval {
     get
     set
   }
-  final public var realtimeAnimationFrame: MTGamification.AnimationFrameTime {
-    get
-  }
-  final public var realtimeAnimationProgress: MTGamification.AnimationProgressTime {
-    get
-  }
-  final public var animationSpeed: CoreGraphics.CGFloat {
+  @_Concurrency.MainActor(unsafe) final public var currentFrame: MTGamification.AnimationFrameTime {
     get
     set
   }
-  final public var respectAnimationFrameRate: Swift.Bool {
+  @_Concurrency.MainActor(unsafe) final public var realtimeAnimationFrame: MTGamification.AnimationFrameTime {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) final public var realtimeAnimationProgress: MTGamification.AnimationProgressTime {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) final public var animationSpeed: CoreFoundation.CGFloat {
     get
     set
   }
-  final public var viewportFrame: CoreGraphics.CGRect? {
+  @_Concurrency.MainActor(unsafe) final public var respectAnimationFrameRate: Swift.Bool {
     get
     set
   }
-  final public func play(completion: MTGamification.LottieCompletionBlock? = nil)
-  final public func play(fromProgress: MTGamification.AnimationProgressTime? = nil, toProgress: MTGamification.AnimationProgressTime, loopMode: MTGamification.LottieLoopMode? = nil, completion: MTGamification.LottieCompletionBlock? = nil)
-  final public func play(fromFrame: MTGamification.AnimationFrameTime? = nil, toFrame: MTGamification.AnimationFrameTime, loopMode: MTGamification.LottieLoopMode? = nil, completion: MTGamification.LottieCompletionBlock? = nil)
-  final public func play(fromMarker: Swift.String? = nil, toMarker: Swift.String, loopMode: MTGamification.LottieLoopMode? = nil, completion: MTGamification.LottieCompletionBlock? = nil)
-  final public func stop()
-  final public func pause()
-  final public func reloadImages()
-  final public func forceDisplayUpdate()
-  final public func setValueProvider(_ valueProvider: MTGamification.AnyValueProvider, keypath: MTGamification.AnimationKeypath)
-  final public func getValue(for keypath: MTGamification.AnimationKeypath, atFrame: MTGamification.AnimationFrameTime?) -> Any?
-  final public func logHierarchyKeypaths()
-  final public func addSubview(_ subview: MTGamification.AnimationSubview, forLayerAt keypath: MTGamification.AnimationKeypath)
-  final public func convert(_ rect: CoreGraphics.CGRect, toLayerAt keypath: MTGamification.AnimationKeypath?) -> CoreGraphics.CGRect?
-  final public func convert(_ point: CoreGraphics.CGPoint, toLayerAt keypath: MTGamification.AnimationKeypath?) -> CoreGraphics.CGPoint?
-  final public func setNodeIsEnabled(isEnabled: Swift.Bool, keypath: MTGamification.AnimationKeypath)
-  final public func progressTime(forMarker named: Swift.String) -> MTGamification.AnimationProgressTime?
-  final public func frameTime(forMarker named: Swift.String) -> MTGamification.AnimationFrameTime?
-  public init(animation: MTGamification.Animation?, imageProvider: MTGamification.AnimationImageProvider? = nil, textProvider: MTGamification.AnimationTextProvider = DefaultTextProvider(), fontProvider: MTGamification.AnimationFontProvider = DefaultFontProvider())
-  @objc dynamic public init()
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
-  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
-  @objc override final public var intrinsicContentSize: CoreGraphics.CGSize {
+  @_Concurrency.MainActor(unsafe) final public var viewportFrame: CoreFoundation.CGRect? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) final public func play(completion: MTGamification.LottieCompletionBlock? = nil)
+  @_Concurrency.MainActor(unsafe) final public func play(fromProgress: MTGamification.AnimationProgressTime? = nil, toProgress: MTGamification.AnimationProgressTime, loopMode: MTGamification.LottieLoopMode? = nil, completion: MTGamification.LottieCompletionBlock? = nil)
+  @_Concurrency.MainActor(unsafe) final public func play(fromFrame: MTGamification.AnimationFrameTime? = nil, toFrame: MTGamification.AnimationFrameTime, loopMode: MTGamification.LottieLoopMode? = nil, completion: MTGamification.LottieCompletionBlock? = nil)
+  @_Concurrency.MainActor(unsafe) final public func play(fromMarker: Swift.String? = nil, toMarker: Swift.String, loopMode: MTGamification.LottieLoopMode? = nil, completion: MTGamification.LottieCompletionBlock? = nil)
+  @_Concurrency.MainActor(unsafe) final public func stop()
+  @_Concurrency.MainActor(unsafe) final public func pause()
+  @_Concurrency.MainActor(unsafe) final public func reloadImages()
+  @_Concurrency.MainActor(unsafe) final public func forceDisplayUpdate()
+  @_Concurrency.MainActor(unsafe) final public func setValueProvider(_ valueProvider: MTGamification.AnyValueProvider, keypath: MTGamification.AnimationKeypath)
+  @_Concurrency.MainActor(unsafe) final public func getValue(for keypath: MTGamification.AnimationKeypath, atFrame: MTGamification.AnimationFrameTime?) -> Any?
+  @_Concurrency.MainActor(unsafe) final public func logHierarchyKeypaths()
+  @_Concurrency.MainActor(unsafe) final public func addSubview(_ subview: MTGamification.AnimationSubview, forLayerAt keypath: MTGamification.AnimationKeypath)
+  @_Concurrency.MainActor(unsafe) final public func convert(_ rect: CoreFoundation.CGRect, toLayerAt keypath: MTGamification.AnimationKeypath?) -> CoreFoundation.CGRect?
+  @_Concurrency.MainActor(unsafe) final public func convert(_ point: CoreFoundation.CGPoint, toLayerAt keypath: MTGamification.AnimationKeypath?) -> CoreFoundation.CGPoint?
+  @_Concurrency.MainActor(unsafe) final public func setNodeIsEnabled(isEnabled: Swift.Bool, keypath: MTGamification.AnimationKeypath)
+  @_Concurrency.MainActor(unsafe) final public func progressTime(forMarker named: Swift.String) -> MTGamification.AnimationProgressTime?
+  @_Concurrency.MainActor(unsafe) final public func frameTime(forMarker named: Swift.String) -> MTGamification.AnimationFrameTime?
+  @_Concurrency.MainActor(unsafe) public init(animation: MTGamification.Animation?, imageProvider: MTGamification.AnimationImageProvider? = nil, textProvider: MTGamification.AnimationTextProvider = DefaultTextProvider(), fontProvider: MTGamification.AnimationFontProvider = DefaultFontProvider())
+  @_Concurrency.MainActor(unsafe) @objc dynamic public init()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override final public var intrinsicContentSize: CoreFoundation.CGSize {
     @objc get
   }
   @objc deinit
 }
 final public class PointValueProvider : MTGamification.AnyValueProvider {
-  public typealias PointValueBlock = (CoreGraphics.CGFloat) -> CoreGraphics.CGPoint
-  final public var point: CoreGraphics.CGPoint {
+  public typealias PointValueBlock = (CoreFoundation.CGFloat) -> CoreFoundation.CGPoint
+  final public var point: CoreFoundation.CGPoint {
     get
     set
   }
   public init(block: @escaping MTGamification.PointValueProvider.PointValueBlock)
-  public init(_ point: CoreGraphics.CGPoint)
+  public init(_ point: CoreFoundation.CGPoint)
   final public var valueType: Any.Type {
     get
   }
-  final public func hasUpdate(frame: CoreGraphics.CGFloat) -> Swift.Bool
-  final public func value(frame: CoreGraphics.CGFloat) -> Any
+  final public func hasUpdate(frame: CoreFoundation.CGFloat) -> Swift.Bool
+  final public func value(frame: CoreFoundation.CGFloat) -> Any
   @objc deinit
 }
 @objc final public class CompatibleAnimationKeypath : ObjectiveC.NSObject {
   @objc public init(keypath: Swift.String)
   @objc public init(keys: [Swift.String])
   final public let animationKeypath: MTGamification.AnimationKeypath
-  @objc override dynamic public init()
   @objc deinit
 }
 @_hasMissingDesignatedInitializers public class TTUtils {
-  public class func uiColor(from rgbValue: Swift.UInt, alpha: CoreGraphics.CGFloat = 1.0) -> UIKit.UIColor
+  public class func uiColor(from rgbValue: Swift.UInt, alpha: CoreFoundation.CGFloat = 1.0) -> UIKit.UIColor
   @objc deinit
 }
-extension Bundle {
+extension Foundation.Bundle {
   public static func sw_frameworkBundle() -> Foundation.Bundle
 }
 extension MTGamification.LayerType : Swift.Equatable {}
