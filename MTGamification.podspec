@@ -10,10 +10,9 @@ Pod::Spec.new do |spec|
   spec.license      = { :type => "MIT", :file => "license" }
   spec.platform      = :ios
   spec.source       = { :git => 'https://github.com/skyshivy/MTGamification.git', :tag => spec.version }
+
   spec.vendored_frameworks = 'MTGamification.xcframework'
   spec.exclude_files = "Classes/Exclude"
   spec.requires_arc = true
   
 end
-
-
