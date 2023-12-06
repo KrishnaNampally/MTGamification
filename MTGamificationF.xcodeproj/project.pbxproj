@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E4F7848282B7C2800EB4AE0 /* MTGamification.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E4F7847282B7C2800EB4AE0 /* MTGamification.xcframework */; };
+		1E7A5F702B20D6240035F6B7 /* MTGamification.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7A5F6F2B20D6240035F6B7 /* MTGamification.xcframework */; };
 		3320FEBD2682E4EB001809AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3320FEBC2682E4EB001809AA /* AppDelegate.swift */; };
 		3320FEBF2682E4EB001809AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3320FEBE2682E4EB001809AA /* SceneDelegate.swift */; };
 		3320FEC12682E4EB001809AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3320FEC02682E4EB001809AA /* ViewController.swift */; };
@@ -20,7 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1E4F7847282B7C2800EB4AE0 /* MTGamification.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MTGamification.xcframework; sourceTree = SOURCE_ROOT; };
+		1E7A5F6F2B20D6240035F6B7 /* MTGamification.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MTGamification.xcframework; sourceTree = SOURCE_ROOT; };
 		3320FEB92682E4EB001809AA /* MTGamificationF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MTGamificationF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3320FEBC2682E4EB001809AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3320FEBE2682E4EB001809AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,7 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E4F7848282B7C2800EB4AE0 /* MTGamification.xcframework in Frameworks */,
+				1E7A5F702B20D6240035F6B7 /* MTGamification.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,7 +65,7 @@
 		3320FEBB2682E4EB001809AA /* MTGamificationF */ = {
 			isa = PBXGroup;
 			children = (
-				1E4F7847282B7C2800EB4AE0 /* MTGamification.xcframework */,
+				1E7A5F6F2B20D6240035F6B7 /* MTGamification.xcframework */,
 				3320FED72682E642001809AA /* LICENSE */,
 				3320FED62682E642001809AA /* MTGamification.podspec */,
 				3320FED82682E643001809AA /* README.md */,
